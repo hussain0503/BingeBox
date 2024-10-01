@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Routes, useLocation } from 'react-router-dom';
 import LogIn from './LogIn';
 import SignUp from './SignUp';
 import Hpage from './Hpage';
@@ -11,45 +11,58 @@ import BingeBox from './BingeBox.jpg';
 import FeedbackPage from './FeedbackPage';
 import PrivacyPolicy from './PrivacyPolicy';
 import TermsOfService from './TermsOfService';
+import Logout from './Logout'; // Import the Logout component
 
 const NavBar = () => {
+    const location = useLocation();
+
+    // Conditionally hide links on LogIn and SignUp pages
+    const hideLinks = location.pathname === '/' || location.pathname === '/signup';
+
     return (
         <nav>
             <div className="nav-content">
                 <img src={BingeBox} alt="BingeBox Logo" className="logo" />
-                <ul>
-                    <li><Link to="/">Shows</Link></li>
-                    <li><Link to="/login">LogIn</Link></li>
-                    <li><Link to="/signup">SignUp</Link></li>
-                    <li><Link to="/about">About Us</Link></li>
-                    <li><Link to="/Feedback">FeedBack</Link></li>
-                </ul>
+                {!hideLinks && (
+                    <ul>
+                        <li><Link to="/home">Shows</Link></li>
+                        <li><Link to="/about">About Us</Link></li>
+                        <li><Link to="/feedback">Feedback</Link></li>
+                        <li><Link to="/logout">Logout</Link></li> {/* Add Logout link */}
+                    </ul>
+                )}
             </div>
         </nav>
+    );
+};
+
+const AppContent = () => {
+    return (
+        <div>
+            <NavBar />
+            <Routes>
+                <Route path="/" element={<LogIn />} />
+                <Route path="/home" element={<Hpage />} />
+                <Route path="/signup" element={<SignUp />} />
+                <Route path="/about" element={<AboutMe />} />
+                <Route path="/feedback" element={<FeedbackPage />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} /> 
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/terms-of-service" element={<TermsOfService />} />
+                <Route path="/logout" element={<Logout />} /> {/* Add Logout route */}
+            </Routes>
+            <Footer />
+        </div>
     );
 };
 
 const App = () => {
     return (
         <Router>
-            <div>
-                <NavBar />
-                <Routes>
-                    <Route path="/" element={<Hpage />} />
-                    <Route path="/login" element={<LogIn />} />
-                    <Route path="/signup" element={<SignUp />} />
-                    <Route path="/about" element={<AboutMe />} />
-                    <Route path="/feedBack" element={<FeedbackPage />} />
-                    <Route path="/forgot-password" element={<ForgotPassword />} /> 
-                    <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                    <Route path="/terms-of-service" element={<TermsOfService />} />
-
-
-                </Routes>
-                <Footer />
-            </div>
+            <AppContent />
         </Router>
     );
 };
 
 export default App;
+

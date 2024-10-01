@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 const FeedbackPage = () => {
     const [formData, setFormData] = useState({
         name: '',
@@ -17,7 +18,6 @@ const FeedbackPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Here you can handle form submission, e.g., sending data to a server
         console.log('Feedback submitted:', formData);
         alert('Thank you for your feedback!');
         setFormData({
