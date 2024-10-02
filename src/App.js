@@ -17,7 +17,7 @@ const NavBar = () => {
     const location = useLocation();
 
     // Conditionally hide links on LogIn and SignUp pages
-    const hideLinks = location.pathname === '/' || location.pathname === '/signup';
+    const hideLinks = location.pathname === '/' || location.pathname === '/signup' || location.pathname === '/forgot-password';
 
     return (
         <nav>
