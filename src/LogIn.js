@@ -5,20 +5,20 @@ import { useNavigate } from 'react-router-dom';
 function LogIn() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate(); // Initialize useNavigate for navigation
+    const navigate = useNavigate(); 
 
     const handleSubmit = async (e) => {
-        e.preventDefault(); // Prevent default form submission
+        e.preventDefault(); 
         try {
             const response = await axios.post('http://localhost:5000/api/auth/login', {
                 username,
                 password,
             });
             
-            alert(response.data.message); // Alert the user with a success message
+            alert(response.data.message); 
             
-            // Redirect to the home page (e.g., '/')
-            navigate('/home'); // Change this if your home route is different
+            
+            navigate('/home'); 
         } catch (error) {
             alert(error.response?.data.message || 'Login failed');
         }

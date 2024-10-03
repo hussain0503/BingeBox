@@ -5,10 +5,8 @@ const Logout = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Perform logout logic here (e.g., clear user data, tokens, etc.)
-        localStorage.removeItem('user'); // Example: removing user data from local storage
+        localStorage.removeItem('user'); 
 
-        // Redirect to login page after logout
         navigate('/');
     }, [navigate]);
 
