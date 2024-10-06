@@ -19,7 +19,7 @@ function SignUp() {
                 ContactNumber,
             });
             alert(response.data.message);
-            navigate('/'); // Ensure '/login' route exists
+            navigate('/'); 
         } catch (error) {
             alert(error.response?.data.message || 'Registration failed');
         }

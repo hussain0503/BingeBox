@@ -40,8 +40,6 @@ import neighbor from './images/neighbor.jpg';
 import thirteenth from './images/thirteenth.jpg';
 import freesolo from './images/freesolo.jpg';
 import marvel from './videos/marvel.mp4';
-import mainpage2 from './images/mainpage2.jpg';
-import mainpage1 from './images/mainpage1.jpg';
 
 const eventsData = {
   action: [
