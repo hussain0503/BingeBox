@@ -18,15 +18,12 @@ const AboutUs = () => {
       </section>
 
       <section className="about-us-section">
-        <h2>Meet the Team</h2>
+        <h2>Meet the Creator</h2>
         <div className="team-member">
           <img src= {hussain} alt="hussain" />
           <h3>Hussain Mantri</h3>
         </div>
-        <div className="team-member">
-          <img src= {melanie} alt="melanie" />
-          <h3>Melanie Fernandes</h3>
-        </div>
+      
       </section>
 
       <section className="about-us-section">
