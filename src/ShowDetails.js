@@ -28,15 +28,15 @@ const ShowDetails = ({ event, onGoBack }) => {
         </>
       ) : (
         <div className="video-container">
-          <video controls autoPlay className="movie-video">
-            <source src={event.video} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          <button className="go-back-button" onClick={onGoBack}>
-            Go Back
-          </button>
-        </div>
-      )}
+    <video controls autoPlay className="movie-video">
+      <source src={event.video} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <button className="go-back-button" onClick={onGoBack}>
+      Go Back
+    </button>
+  </div>
+)}
     </div>
   );
 };

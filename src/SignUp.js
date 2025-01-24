@@ -61,7 +61,7 @@ function SignUp() {
                     placeholder="Enter Contact Number.."
                     required
                 />
-                <p>Already have an Account?<a href="/">Log In</a></p>
+                <p>Already have an Account? <a href="/">Log In</a></p>
                 <button className="btn" type="submit">Submit</button>
             </form>
         </div>
